@@ -1,2 +1,2 @@
 # AdvancedReactAndRedux
-Project files from the Udemy course Advanced React And Redux from Stephen Grider
+Project files for the Udemy course Advanced React And Redux from Stephen Grider
