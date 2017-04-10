@@ -6,6 +6,11 @@ const morgan = require('morgan');
 const app = express();
 
 //app setup
+//morgan and bodyParser are middleware in express
+//morgan--logging framework
+//bodyParser-- parse incoming requests
+app.use(morgan('combined'));
+app.use(bodyParser.json({type:'*/*'}));//any incoming requests will be parsed into json
 
 
 
