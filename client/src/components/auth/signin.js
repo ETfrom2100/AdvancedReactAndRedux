@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {reduxForm,Field} from 'redux-form';
-const renderInput = field =>   // Define stateless component to render input and errors
+//redux-form v6
+/*const renderInput = field =>   // Define stateless component to render input and errors   
   <div>
     <input {...field.input} type={field.type} className={field.className}/>  
     {field.meta.touched &&
      field.meta.error &&
      <span className="error">{field.meta.error}</span>}
-  </div>
+  </div>*/
 class Signin extends Component{
 	
 	handleFormSubmit({email,password}){
@@ -19,11 +20,11 @@ class Signin extends Component{
 			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				<fieldset className="form-group">
 					<label>Email:</label>
-					<Field className="form-control" component={renderInput} type="text" name="email" />
+					<Field className="form-control" component="input" type="text" name="email" />
 				</fieldset>
 				<fieldset className="form-group">
 					<label>Password:</label>
-					<Field  className="form-control" component={renderInput} type="password" name="password"/>
+					<Field  className="form-control" component="input" type="password" name="password"/>
 				</fieldset>
 				<button action="submit" className="btn btn-primary">Sign in</button>
 			</form>
