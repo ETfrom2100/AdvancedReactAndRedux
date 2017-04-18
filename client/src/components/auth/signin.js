@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {reduxForm,Field} from 'redux-form';
+import * as actions from '../../actions';
+import {connect} from 'react-redux';
 //redux-form v6
 /*const renderInput = field =>   // Define stateless component to render input and errors   
   <div>
@@ -13,6 +15,8 @@ class Signin extends Component{
 	handleFormSubmit({email,password}){
 		//debugger;
 		console.log(email,password);
+		console.log(this.props);
+		this.props.signinUser({email,password});
 	}
 	render(){
 		const {handleSubmit} = this.props;
@@ -31,8 +35,11 @@ class Signin extends Component{
 		)
 	}
 }
-
-export default reduxForm({
+//In reduxForm v5, the reduxForm() decorator allowed these parameters (mapStateToProps and mapDispatchToProps) to be given and it passed them along to react-redux's connect() API.
+//v6 no longer does this. You will need to separately decorate your form component with connect() yourself if you need to access other values in the Redux store or bind action creators to dispatch.
+Signin = reduxForm({
 	form:'signin',
 	
 })(Signin);
+Signin =  connect(null, actions)(Signin);
+export default Signin;
