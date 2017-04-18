@@ -8,7 +8,7 @@ export function signinUser({email,password}){
 	//reduxThunk gives us arbitrary access to the dispatch function
 	return function(){
 		//submit email/password to the server
-		axios.post(ROOT_URL+'/signin', {email,password}); //{email:email,password:password}
+		axios.post(`${ROOT_URL}/signin`, {email,password}); //{email:email,password:password}
 	
 		//if request is good
 		//- update state to indicate user is authenticated
