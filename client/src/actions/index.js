@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router';
 const ROOT_URL = 'http://localhost:3090';
-import {AUTH_USER, AUTH_ERROR} from './types';
+import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './types';
 
 
 export function signinUser({email,password}){
@@ -39,4 +39,10 @@ export function authError(error){
 		type:AUTH_ERROR,
 		payload:error
 	}
+}
+
+export function signoutUser()
+{
+	localStorage.removeItem('token');
+	return {type:UNAUTH_USER}
 }
